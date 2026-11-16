@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enquete: seus video games favoritos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<body>
+
+  <!-- Link para pular direto ao conteúdo (teclado e leitores de tela) -->
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- Vídeo de fundo: decorativo, por isso fica escondido de leitores de tela -->
+  <div class="video-fundo-container" aria-hidden="true">
+    <video autoplay muted loop playsinline class="video-fundo" id="video-fundo" tabindex="-1">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-escuro"></div>
+  </div>
+
+  <!-- Controle para pausar o vídeo (exigência de acessibilidade para movimento automático) -->
+  <button type="button" class="botao-video" id="botao-video" aria-pressed="false">
+    Pausar vídeo de fundo
+  </button>
+
+  <header>
+    <h1>Seu video game favorito</h1>
+  </header>
+
+  <main id="conteudo">
+    <div class="cartao">
+      <h2>Jogos que marcaram época</h2>
+
+      <div class="area-imagem">
+        <img
+          src="sala.jpeg"
+          alt="Sala com consoles, controles e jogos organizados em uma estante"
+          class="foto-destaque"
+        >
+      </div>
+
+      <p>Do console clássico ao PC: conte para a gente quais jogos e plataformas você mais curte.</p>
+
+      <p class="aviso-obrigatorio">Campos marcados com <span aria-hidden="true">*</span> são obrigatórios.</p>
+
+      <form id="form-enquete" novalidate>
+        <h3>Participe da enquete</h3>
+
+        <p>
+          <label for="nome-visitante">Seu nome <span aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="nome-visitante"
+            name="nome"
+            placeholder="Ex.: Maria Silva"
+            autocomplete="name"
+            required
+            aria-describedby="erro-nome"
+          >
+          <span class="erro" id="erro-nome" hidden>Digite seu nome para continuar.</span>
+        </p>
+
+        <!-- RADIO: escolha ÚNICA -->
+        <fieldset aria-describedby="erro-jogo">
+          <legend>1. Escolha o seu jogo favorito <span aria-hidden="true">*</span></legend>
+
+          <div class="grade-opcoes">
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op1" name="favorito" value="zelda" required>
+              <label for="op1">
+                <img src="zelda.png" alt="">
+                <span>The Legend of Zelda: Breath of the Wild</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op2" name="favorito" value="minecraft">
+              <label for="op2">
+                <img src="mine.jpg" alt="">
+                <span>Minecraft</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op3" name="favorito" value="mario">
+              <label for="op3">
+                <img src="mario.jpg" alt="">
+                <span>Super Mario Bros.</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op4" name="favorito" value="gta">
+              <label for="op4">
+                <img src="gta.jpg" alt="">
+                <span>Grand Theft Auto V</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op5" name="favorito" value="fifa">
+              <label for="op5">
+                <img src="fute.jpg" alt="">
+                <span>EA Sports FC (antigo FIFA)</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op6" name="favorito" value="godofwar">
+              <label for="op6">
+                <img src="god.png" alt="">
+                <span>God of War</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op7" name="favorito" value="pokemon">
+              <label for="op7">
+                <img src="poke.jpg" alt="">
+                <span>Pokémon</span>
+              </label>
+            </div>
+
+            <div class="opcao-jogo">
+              <input type="radio" id="op8" name="favorito" value="fortnite">
+              <label for="op8">
+                <img src="forte.jpg" alt="">
+                <span>Fortnite</span>
+              </label>
+            </div>
+
+          </div>
+          <span class="erro" id="erro-jogo" hidden>Escolha um jogo para continuar.</span>
+        </fieldset>
+
+        <!-- CHECKBOX: escolha MÚLTIPLA -->
+        <fieldset>
+          <legend>2. Em quais plataformas você joga? (pode marcar mais de uma)</legend>
+
+          <div class="lista-plataformas">
+            <div class="opcao-plataforma">
+              <input type="checkbox" id="check1" name="plataformas" value="pc">
+              <label for="check1">
+                <img src="pc.jpg" alt="">
+                Computador (PC)
+              </label>
+            </div>
+
+            <div class="opcao-plataforma">
+              <input type="checkbox" id="check2" name="plataformas" value="playstation">
+              <label for="check2">
+                <img src="play.jpeg" alt="">
+                PlayStation
+              </label>
+            </div>
+
+            <div class="opcao-plataforma">
+              <input type="checkbox" id="check3" name="plataformas" value="xbox">
+              <label for="check3">
+                <img src="xbox.jpg" alt="">
+                Xbox
+              </label>
+            </div>
+
+            <div class="opcao-plataforma">
+              <input type="checkbox" id="check4" name="plataformas" value="switch">
+              <label for="check4">
+                <img src="swi.jpg" alt="">
+                Nintendo Switch
+              </label>
+            </div>
+
+            <div class="opcao-plataforma">
+              <input type="checkbox" id="check5" name="plataformas" value="celular">
+              <label for="check5">
+                <img src="celu.jpg" alt="">
+                Celular
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit">Enviar respostas</button>
+
+        <!-- Mensagem de confirmação: anunciada automaticamente por leitores de tela -->
+        <p class="confirmacao" id="confirmacao" role="status" tabindex="-1" hidden></p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Atividade de fixação de HTML e CSS - 2026</p>
+  </footer>
+
+  <script>
+    // Pausar / retomar o vídeo de fundo
+    const video = document.getElementById('video-fundo');
+    const botaoVideo = document.getElementById('botao-video');
+
+    botaoVideo.addEventListener('click', () => {
+      const pausado = video.paused;
+      if (pausado) { video.play(); } else { video.pause(); }
+      botaoVideo.setAttribute('aria-pressed', String(!pausado));
+      botaoVideo.textContent = pausado ? 'Pausar vídeo de fundo' : 'Retomar vídeo de fundo';
+    });
+
+    // Respeita quem pediu menos movimento no sistema
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      botaoVideo.hidden = true;
+    }
+
+    // Validação simples com mensagens claras
+    const form = document.getElementById('form-enquete');
+    const nome = document.getElementById('nome-visitante');
+    const erroNome = document.getElementById('erro-nome');
+    const erroJogo = document.getElementById('erro-jogo');
+    const confirmacao = document.getElementById('confirmacao');
+
+    form.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      confirmacao.hidden = true;
+
+      const jogo = form.querySelector('input[name="favorito"]:checked');
+      const nomeValido = nome.value.trim() !== '';
+
+      erroNome.hidden = nomeValido;
+      nome.setAttribute('aria-invalid', String(!nomeValido));
+      erroJogo.hidden = Boolean(jogo);
+
+      if (!nomeValido) { nome.focus(); return; }
+      if (!jogo) { form.querySelector('input[name="favorito"]').focus(); return; }
+
+      const plataformas = [...form.querySelectorAll('input[name="plataformas"]:checked')]
+        .map((item) => item.nextElementSibling.textContent.trim());
+      const nomeJogo = jogo.nextElementSibling.querySelector('span').textContent;
+
+      confirmacao.textContent =
+        'Obrigado, ' + nome.value.trim() + '! Seu jogo favorito: ' + nomeJogo + '. ' +
+        (plataformas.length ? 'Plataformas: ' + plataformas.join(', ') + '.' : 'Nenhuma plataforma marcada.');
+      confirmacao.hidden = false;
+      confirmacao.focus();
+    });
+  </script>
+
+</body>
+</html>
